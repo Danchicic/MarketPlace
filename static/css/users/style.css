@@ -1,0 +1,22 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-field {
+    display: block;
+}
+
+.form-field > label {
+
+    margin-bottom: 20px;
+}
+
+.required {
+    color: red;
+}
+
+.form-input {
+    border: black;
+    border-radius: 30%;
+}
