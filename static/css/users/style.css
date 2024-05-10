@@ -1,15 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+
+@media (min-width: 1900px) {
+    body {
+        background-size: cover;
+    }
+}
+
 body {
     background-repeat: no-repeat;
-    background-size: cover;
+    font-family: "Reem Kufi Ink", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.form-wrapper {
+    width: 50%;
+    margin: 40px auto 20px;
+}
+
+.label-text {
+    padding-right: 3px;
+}
+
+.header-text-block {
+    text-align: center;
+    font-weight: 64;
+    color: white;
+
 }
 
 .form-field {
     display: block;
+    text-align: center;
+    background-color: white;
+    text-transform: capitalize;
+    border-radius: 50px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 25px;
+    font-size: 32px;
+
+
 }
 
 .form-field > label {
+    display: flex;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
 
-    margin-bottom: 20px;
+.last-form-field {
+    margin-bottom: 0;
 }
 
 .required {
@@ -17,6 +59,81 @@ body {
 }
 
 .form-input {
-    border: black;
-    border-radius: 30%;
+    border: 0;
+    width: 50%;
+    border-radius: 50px;
+
+
+}
+
+.form-input:focus {
+    outline: none !important;
+
+}
+
+.submit-button {
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+.submit-button > button {
+    text-decoration: none;
+    border-radius: 40px;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    padding: 15px 110px;
+}
+
+.submit-button-text {
+    color: rgb(198, 43, 183);
+    text-align: center;
+    font-size: 48px;
+
+}
+
+.registration-divider {
+    border: solid 1px;
+    color: #1B56ED;
+}
+
+.alternative-reg-wrapper {
+    margin: -13px auto;
+    padding-bottom: 71px;
+}
+
+.alternative-title {
+    font-size: 32px;
+    color: white;
+    text-align: center;
+}
+
+.alternative-buttons-list {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+}
+
+.alternative-button {
+    /*margin-right: 100px;*/
+}
+
+.alternative-button > button {
+    border-radius: 40px;
+
+
+}
+
+.alternative-button > button > img {
+    width: 150px;
+    height: 50px;
+
+}
+
+.alternative-button-img {
+    align-items: center;
+    margin: 10px 30px;
+
 }

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static('css/users/style.css') }}">
+{% endblock head %}
+
+{% block main %}
+    <body style="background-image: url('../../static/img/users/registration_bg.png')">
+
+    <div class="header-text-block">
+        <h1 class="header-text">Sign Up</h1>
+    </div>
+    <div class="form-wrapper">
+        <form class="form-list" method="post" action="{{ url("users:registration") }}">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            {% for field in form %}
+                <div class="form-field">
+
+                    <label for="{{ field.id_for_label }}">
+                        <span class="label-text">
+                            {{ field.label }}:</span>
+                        <input type="text" name="{{ field.name }}" maxlength="150" class="form-input"
+                               id="id_first_name">
+                    </label>
+                </div>
+            {% endfor %}
+            <div class="submit-button">
+                <button type="submit">
+                    <span class="submit-button-text">Sign Up</span>
+                </button>
+            </div>
+        </form>
+        <hr class="registration-divider">
+
+
+    </div>
+    <div class="alternative-reg-wrapper">
+        <div class="alternative-registration">
+            <div class="alternative-title">
+                Or
+            </div>
+            <div class="alternative-buttons-list">
+                <div class="alternative-button">
+                    <button>
+                        <img src="../../static/img/users/google-logo.png" alt="" class="alternative-button-img">
+                    </button>
+                </div>
+                <div class="alternative-button">
+                    <button>
+                        <img src="../../static/img/users/facebook-logo.png" alt="" class="alternative-button-img">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </body>
+{% endblock %}
+</html>
