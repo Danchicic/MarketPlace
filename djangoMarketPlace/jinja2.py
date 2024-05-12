@@ -12,7 +12,9 @@ def environment(**options):
         'url': reverse,
     })
     env.filters.update({
+        # my filters
         'addclass': add_class,
+        # django filters
         'apnumber': apnumber,
         'intcomma': intcomma,
         'intword': intword,

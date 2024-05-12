@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ shop.title }}</title>
+    {% block head %}
+        <link rel="stylesheet" href="{{ static('css/shops/shop.css') }}">
+    {% endblock %}
+</head>
+<body>
+{% block main %}
+    <nav>
+        <button>back</button>
+    </nav>
+    <main>
+        <div class="shop-header">
+            <div class="left-header">
+
+                <div class="rating-block">
+                    <div class="rating">
+                        {{ shop.review.rating }}
+                    </div>
+                    <img src="{{ static('img/rating-star.png') }}" alt="">
+                </div>
+
+                <div class="shop-avatar">
+                    <img src="{{ shop.preview }}" alt="">
+                </div>
+            </div>
+            <div class="right-header">
+
+                <div class="shop-name">
+                    {{ shop.name }}
+                </div>
+                <div class="shop-description">
+                    {{ shop.description }}
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="shop-stat">
+            <div class="shop-vector-stat">
+
+                <div class="worth-it">
+                    <div class="stat-wrapper">
+
+                        <img src="../../static/img/rating-ring.png" alt="">
+                        <div class="stat-text">
+                            Worth It
+                        </div>
+                    </div>
+
+                </div>
+                <div class="accuracy">
+                    <div class="stat-wrapper">
+
+                        <img src="../../static/img/rating-ring.png" alt="">
+                        <div class="stat-text">
+                            Accuracy
+                        </div>
+                    </div>
+                </div>
+                <div class="delivery">
+                    <div class="stat-wrapper">
+
+                        <img src="../../static/img/rating-ring.png" alt="">
+                        <div class="stat-text">
+                            Delivery
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="number-stat">
+                <div class="stat">
+                    <span>{{ shop.orders_complete }}</span>
+                    <div class="stat-text">
+                        Orders Completed
+                    </div>
+                </div>
+                <div class="stat">
+                    <span>{{ shop.products }}</span>
+                    <div class="stat-text">
+                        Products
+                    </div>
+                </div>
+                <div class="stat">
+                    <span>{{ shop.reviews_count }}</span>
+                    <div class="stat-text">
+                        Reviews
+                    </div>
+                </div>
+                <div class="stat under-stat">
+                    <img src="../../static/img/views.png" alt="" class="view">
+                    <span>{{ shop.views_count|intword }}</span>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        {% for item in shop_items %}
+            <div class="shop-items">
+                <div class="item">
+                    <img src="{{ item.preview }}" alt="">
+                    <div class="price">{{ item.price }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </footer>
+
+    </body>
+{% endblock %}
+</html>

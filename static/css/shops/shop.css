@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap');
+
+.shop-header {
+    display: flex;
+}
+
+.shop-avatar > img {
+    width: 88px;
+    height: 88px;
+    border-radius: 100px;
+}
+
+.shop-avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.left-header {
+    display: flex;
+}
+
+.rating-block {
+    display: flex;
+    height: 30px;
+    background-color: pink;
+    border-radius: 40px;
+    padding: 4px 7px;
+    margin-left: 50px;
+
+}
+
+.rating-block > img {
+    height: 15px;
+    width: 15px;
+}
+
+.rating {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Reem Kufi Ink", sans-serif;
+}
+
+.shop-name {
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+.right-header {
+    margin-left: 100px;
+}
+
+.shop-stat {
+    display: flex;
+    gap: 40%;
+    margin-top: 20px;
+    justify-content: center;
+
+}
+
+.shop-vector-stat {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.stat > span {
+    font-size: 40px;
+    font-family: "Skranji", sans-serif;
+    color: #782270;
+
+}
+
+.under-stat > span {
+    color: black;
+    font-family: "Reem Kufi Ink", sans-serif;
+}
+
+.stat-text {
+    font-size: 32px;
+    font-family: "Reem Kufi Ink", sans-serif;
+    text-transform: capitalize;
+
+}
+
+.shop-items {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item > img {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
+
+.price {
+    font-family: "Reem Kufi Ink", sans-serif;
+    font-size: 24px;
+    margin-left: 41px;
+}
