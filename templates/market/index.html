@@ -74,38 +74,13 @@
         <div class="shops-wrapper">
             {% for shop in shops %}
                 <a href="{{ url('market:shop',args=[shop.address]) }}" class="shop-preview">
-                    <img src="{{ shop.preview }}" alt="">
+                    <img src="{{ shop.preview.url }}" alt="{{ shop.name }}">
                     <div class="shop-title">
                         {{ shop.name }}
                     </div>
                 </a>
             {% endfor %}
 
-
-            {#                <div class="shop-preview">#}
-            {#                    <img src="{{ static('img/catalog/kates.png') }}" alt="">#}
-            {#                    <div class="shop-title">#}
-            {#                        Kate's#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#                <div class="shop-preview">#}
-            {#                    <img src="{{ static('img/catalog/patrick_ta.png') }}" alt="">#}
-            {#                    <div class="shop-title">#}
-            {#                        Patrick Ta#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#                <div class="shop-preview">#}
-            {#                    <img src="{{ static('img/catalog/lane.png') }}" alt="">#}
-            {#                    <div class="shop-title">#}
-            {#                        Lane#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#                <div class="shop-preview">#}
-            {#                    <img src="{{ static('img/catalog/misty.png') }}" alt="">#}
-            {#                    <div class="shop-title">#}
-            {#                        Lane#}
-            {#                    </div>#}
-            {#                </div>#}
         </div>
     </footer>
 

@@ -21,9 +21,9 @@ from django.urls import path, include
 from . import settings
 
 urlpatterns = [
-    path('', include('market.urls', namespace='market')),
     path('users/', include('users.urls', namespace='users')),
     path('admin/', admin.site.urls),
+    path('', include('market.urls', namespace='market')),
 
 ]
 

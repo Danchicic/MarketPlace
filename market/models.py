@@ -11,17 +11,21 @@ class Review(models.Model):
     accuracy = models.DecimalField(decimal_places=0, max_digits=3, validators=percentage_validator, default=0)
     delivery = models.DecimalField(decimal_places=0, max_digits=3, validators=percentage_validator, default=0)
     rating = models.DecimalField(max_digits=3, decimal_places=2, default=0)
+    reviews_count = models.IntegerField(default=0)
 
 
 class Shop(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     review = models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
-    address = models.SlugField()
+    address = models.SlugField(unique=True, blank=False, null=False)
     preview = models.ImageField(upload_to=f'media/shops/{name}/',
                                 db_default='/Users/danya/CodeProject/djangoMarketPlace/static/img/catalog/kates.png',
                                 default='/Users/danya/CodeProject/djangoMarketPlace/static/img/catalog/kates.png')
     views_count = models.IntegerField(default=0, db_default=0)
+
+    def __str__(self):
+        return self.name + ', ' + self.address
 
 
 class Categories(models.Model):
@@ -30,9 +34,9 @@ class Categories(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    price = models.DecimalField(decimal_places=3, max_digits=9)
-    product_description = models.TextField()
-    key_features = models.TextField()
+    price = models.IntegerField()
+    product_description = models.TextField(default='', db_default='', null=False)
+    key_features = models.TextField(default='', db_default='', null=False)
     review = models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
     preview = models.ImageField(

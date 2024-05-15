@@ -4,10 +4,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ shop.title }}</title>
     {% block head %}
         <link rel="stylesheet" href="{{ static('css/shops/shop.css') }}">
     {% endblock %}
+
+
 </head>
 <body>
 {% block main %}
@@ -26,7 +27,7 @@
                 </div>
 
                 <div class="shop-avatar">
-                    <img src="{{ shop.preview }}" alt="">
+                    <img src="..{{ shop.preview.url }}" alt="">
                 </div>
             </div>
             <div class="right-header">
@@ -84,13 +85,13 @@
                     </div>
                 </div>
                 <div class="stat">
-                    <span>{{ shop.products }}</span>
+                    <span>{{ shop_items|length }}</span>
                     <div class="stat-text">
                         Products
                     </div>
                 </div>
                 <div class="stat">
-                    <span>{{ shop.reviews_count }}</span>
+                    <span>{{ shop.review.reviews_count }}</span>
                     <div class="stat-text">
                         Reviews
                     </div>
@@ -105,14 +106,16 @@
         </div>
     </main>
     <footer>
-        {% for item in shop_items %}
-            <div class="shop-items">
+        <div class="shop-items">
+
+            {% for item in shop_items %}
                 <div class="item">
                     <img src="{{ item.preview }}" alt="">
                     <div class="price">{{ item.price }}</div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+
     </footer>
 
     </body>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import CreateView
 
-from .models import Shop, Review, Product
+from .models import Shop, Product
 
 
 class CreateShopView(CreateView):
@@ -28,8 +28,9 @@ class ShopView(View):
     template_name = 'market/shop_view.html'
 
     def get(self, request, shop_address):
-        print(shop_address)
         shop = Shop.objects.select_related("review").get(address=shop_address)
+        shop.views_count += 1
+        shop.save()
         shop_items = Product.objects.filter(shop_id=shop.id)
-        context = {'shop': shop, 'shop_items': shop_items}
+        context = {'title': shop.name, 'shop': shop, 'shop_items': shop_items}
         return render(request, self.template_name, context)

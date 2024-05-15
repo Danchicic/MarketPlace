@@ -10,3 +10,6 @@ urlpatterns = [
     path('<slug:shop_address>/', views.ShopView.as_view(), name="shop"),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
