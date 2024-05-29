@@ -31,6 +31,15 @@ class ShopView(View):
         shop = Shop.objects.select_related("review").get(address=shop_address)
         shop.views_count += 1
         shop.save()
-        shop_items = Product.objects.filter(shop_id=shop.id)
+        shop_items = Product.objects.filter(shop_id=shop.id)[:10]
         context = {'title': shop.name, 'shop': shop, 'shop_items': shop_items}
         return render(request, self.template_name, context)
+
+
+class ProductView(View):
+    template_name = 'market/product_view.html'
+
+    def get(self, request, shop_address, product_id):
+        product_obj = Product.objects.select_related("review", 'shop').get(id=product_id, shop__address=shop_address)
+        context = {'title': product_obj.name, 'product': product_obj}
+        return render(request, self.template_name, context=context)

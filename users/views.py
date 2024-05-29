@@ -1,7 +1,11 @@
+from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import CreateUserForm
+
+from django.contrib.auth.views import LoginView
+from .models import Client
 
 
 # Create your views here.
@@ -10,3 +14,13 @@ class Registration(CreateView):
     success_url = reverse_lazy('catalog:index')
     form_class = CreateUserForm
     extra_context = {'title': 'Registration'}
+
+
+class Login(LoginView):
+    template_name = 'users/login.html'
+    extra_context = {'title': 'Login'}
+
+    def post(self, request: WSGIRequest, *args, **kwargs):
+        print(request.POST)
+
+        return super().post(request, *args, **kwargs)

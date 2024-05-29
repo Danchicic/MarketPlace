@@ -8,6 +8,7 @@ app_name = 'catalog'
 urlpatterns = [
     path('', views.CatalogView.as_view(), name="index"),
     path('<slug:shop_address>/', views.ShopView.as_view(), name="shop"),
+    path('<slug:shop_address>/<int:product_id>', views.ProductView.as_view(), name="shop"),
 
 ]
 

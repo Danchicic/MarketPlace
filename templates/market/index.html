@@ -48,6 +48,11 @@
 
             </div>
         </div>
+    {% if user.is_authenticated %}
+        <p>Я авторизован</p>
+        {% else %}
+        <p>Я новичок</p>
+    {%  endif%}
     </nav>
     <main>
         <img src="{{ static('img/catalog/left.png') }}" alt="" id="left">

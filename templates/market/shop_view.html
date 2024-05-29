@@ -1,19 +1,32 @@
 {% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% block head %}
-        <link rel="stylesheet" href="{{ static('css/shops/shop.css') }}">
-    {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ static('css/shops/shop.css') }}">
+{% endblock %}
 
 
-</head>
 <body>
 {% block main %}
     <nav>
-        <button>back</button>
+        <button class="back-button">
+            <a href="/">
+            <span class="button-text">
+                back
+            </span>
+            </a>
+        </button>
+
+        <button class="user-cart" id="openCartBtn">
+            <img src="{{ static("img/cart.png") }}" alt="" class="cart-image">
+            <span class="counter" style="display: none;">
+            0
+        </span>
+        </button>
+        {#        <div class="cart-preview">#}
+        {##}
+        {##}
+        {#        </div>#}
+
     </nav>
     <main>
         <div class="shop-header">
@@ -108,16 +121,31 @@
     <footer>
         <div class="shop-items">
 
-            {% for item in shop_items %}
+            {% for shop_product in shop_items %}
+
                 <div class="item">
-                    <img src="{{ item.preview }}" alt="">
-                    <div class="price">{{ item.price }}</div>
+                    <a href="{{ shop_product.id }}">
+                        <img src="{{ shop_product.preview }}" alt="">
+                    </a>
+                    <div class="price">{{ shop_product.price }}</div>
+                    <div class="cart-buttons">
+                        <button class="add-product">
+                            add
+                        </button>
+                        <button class="remove-product" style="display: none">
+                            -
+                        </button>
+                    </div>
                 </div>
             {% endfor %}
         </div>
 
     </footer>
 
+    <script src="{{ static("js/open-cart.js") }}"></script>
+    <script src="{{ static("js/load_cart.js") }}"></script>
+    <script src="{{ static("js/add-to-cart-buttons.js") }}"></script>
+
+
     </body>
 {% endblock %}
-</html>

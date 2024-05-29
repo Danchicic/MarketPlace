@@ -2,9 +2,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap');
 
+nav {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.back-button {
+    background-color: #f1adb7;
+    text-decoration: none;
+    align-content: flex-start;
+
+}
+
+.user-cart {
+    position: relative;
+    background: none;
+    border: none;
+}
+
+.user-cart:hover {
+    opacity: 60%;
+}
+
+.counter {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+}
+
+.button-text {
+    text-decoration-line: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+/*.cart-overlay {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: rgba(0, 0, 0, 0.5); !* Прозрачный черный цвет *!*/
+/*    display: none;*/
+/*}*/
+
 .shop-header {
     display: flex;
 }
+
+.cart-image {
+    width: 25px;
+    height: 25px;
+}
+
 
 .shop-avatar > img {
     width: 88px;
@@ -104,7 +152,7 @@
     justify-content: center;
 }
 
-.item > img {
+.item > a > img {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-radius: 50px;
 }
@@ -113,4 +161,9 @@
     font-family: "Reem Kufi Ink", sans-serif;
     font-size: 24px;
     margin-left: 41px;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: space-around;
 }
