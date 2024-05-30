@@ -6,12 +6,18 @@
 
     {% block head %}
     {% endblock %}
+
     <title>{{ title|capitalize }}</title>
 
 </head>
 <body>
+
 {% block main %}
 
 {% endblock %}
+<script src="{{ static("js/cart/open-cart.js") }}"></script>
+<script src="{{ static("js/cart/load_cart.js") }}"></script>
+<script src="{{ static("js/cart/add-to-cart-buttons.js") }}"></script>
+
 </body>
 </html>

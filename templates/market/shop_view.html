@@ -15,17 +15,8 @@
             </span>
             </a>
         </button>
+        {% include('includes/cart.html') %}
 
-        <button class="user-cart" id="openCartBtn">
-            <img src="{{ static("img/cart.png") }}" alt="" class="cart-image">
-            <span class="counter" style="display: none;">
-            0
-        </span>
-        </button>
-        {#        <div class="cart-preview">#}
-        {##}
-        {##}
-        {#        </div>#}
 
     </nav>
     <main>
@@ -142,9 +133,6 @@
 
     </footer>
 
-    <script src="{{ static("js/open-cart.js") }}"></script>
-    <script src="{{ static("js/load_cart.js") }}"></script>
-    <script src="{{ static("js/add-to-cart-buttons.js") }}"></script>
 
 
     </body>
