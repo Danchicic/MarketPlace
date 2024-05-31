@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+
+body {
+    font-family: "Reem Kufi Ink", sans-serif;
+
+}
+.cart-wrapper{
+    width: 50%;
+}
+.cart_items {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+}
+
+.product_img {
+    width: 70px;
+    height: 100px;
+}
+
+.product_name {
+    font-size: 24px;
+}
+
+.product_price {
+    color: #782270;
+    font-size: 32px;
+}
+
+.submit-wrapper {
+    text-align: center;
+}

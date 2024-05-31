@@ -15,7 +15,7 @@
             </span>
             </a>
         </button>
-        {% include('includes/cart.html') %}
+        {% include('includes/mini_cart.html') %}
 
 
     </nav>
@@ -118,6 +118,7 @@
                     <a href="{{ shop_product.id }}">
                         <img src="{{ shop_product.preview }}" alt="">
                     </a>
+                    <div class="product-name">{{ shop_product.name }}</div>
                     <div class="price">{{ shop_product.price }}</div>
                     <div class="cart-buttons">
                         <button class="add-product">

@@ -41,5 +41,6 @@ openCartBtn.addEventListener('click', function () {
     // localStorage.clear();
     document.querySelector("body").appendChild(cart_preview);
     document.querySelector("body").appendChild(bodyOverlay);
+
 });
 

@@ -16,6 +16,7 @@ cart.forEach(function (cartProduct) {
         return false;
     });
     console.log("shop product", shopProduct);
+    console.log(cart);
 
     if (shopProduct) {
         const buttonDelete = shopProduct.querySelector(".remove-product");

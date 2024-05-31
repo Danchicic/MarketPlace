@@ -100,10 +100,8 @@ nav {
 main {
     display: flex;
     flex-wrap: wrap;
-}
-
-main > img {
-    display: flex;
+    width: 100%;
+    height: auto;
 }
 
 #up {
@@ -121,6 +119,7 @@ main > img {
 
 #right {
     position: relative;
+
 }
 
 #left {

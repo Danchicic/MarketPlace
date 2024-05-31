@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let count = parseInt(card.dataset.count) || 0;
         const product_id = card.querySelector('a').getAttribute('href');
 
-
+        console.log(count);
         buttonAdd.addEventListener("click", () => {
             //parse product index
             const productIndex = cart.findIndex(function (product) {
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Если товара нет в корзине, добавляем его как новый элемент
                 const product_json = {
                     "product_id": product_id,
+                    "name": card.querySelector('.product-name').textContent,
                     "img_src": card.querySelector('img').getAttribute('src'),
                     'price': card.querySelector('.price').textContent,
                     'product_quantity': count
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     cart.splice(productIndex, 1); // Удаляем элемент из массива по индексу
 
                 }
+
             } else {
                 // Если товар уже есть в корзине, обновляем его количество
                 existingProduct.product_quantity = count;
