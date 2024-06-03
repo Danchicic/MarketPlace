@@ -10,7 +10,8 @@
     <title>{{ title|capitalize }}</title>
 
 </head>
-<body>
+<body data-user-authenticated="{{ user.is_authenticated }}" data-create-order-src="{{ url("orders:create_order") }}"
+      data-login-url="{{ url("users:register") }}">
 
 {% block main %}
 

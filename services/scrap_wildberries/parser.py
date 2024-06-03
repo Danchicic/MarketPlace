@@ -37,6 +37,7 @@ def scrap_page(url: str):
              'saleConditions': 898,
              'payload': 'nNrE7aMpIUYD67y1rt7k0kcHMPtvpA/XJN4eA/ItCKw0EpWsGymxq5k/YyrJ8fj4PuaFeJyYaMzrN8ub'}],
          'log': {}},
+
         {'time1': 60, 'time2': 93, 'wh': 316857, 'dtype': 1, 'dist': 1020, 'id': 230729159, 'root': 207512274,
          'kindId': 0, 'brand': 'asus', 'brandId': 5786, 'siteBrandId': 0, 'colors': [{'name': 'черный', 'id': 0}],
          'subjectId': 2290, 'subjectParentId': 6238, 'name': 'ноутбук Vivobook Go 15 OLED Ryzen 5 16 512',

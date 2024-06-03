@@ -31,9 +31,3 @@
 }
 
 
-.cart_preview {
-    z-index: 101;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-}

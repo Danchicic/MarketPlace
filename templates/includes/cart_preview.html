@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../static/css/cart/cart_preview.css">
 </head>
 <body>
-<div class="cart-wrapper">
+<div class="cart_preview">
 
     <ul class="cart_items">
         <li class="product">
@@ -39,7 +39,7 @@
     </ul>
     <div class="submit-wrapper">
         {% if user.is_authorized %}
-            <input class="open_order" type="submit" value="Go to order page">
+            <input class="open_order" type="submit" src="{{ url("orders:create_order") }}" value="Go to order page">
         {% else %}
             <input class="create_profile" type="button" src="{{ url("users:register") }}"
                    value="Create profile or login">

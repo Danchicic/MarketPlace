@@ -5,9 +5,23 @@ body {
     font-family: "Reem Kufi Ink", sans-serif;
 
 }
-.cart-wrapper{
+
+.cart_preview {
+    flex-direction: column;
+    align-items: flex-end;
     width: 50%;
+    background-color: white;
+    z-index: 101;
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    padding: 25px;
 }
+
+.close-cart {
+    cursor: pointer;
+}
+
 .cart_items {
     display: flex;
     flex-direction: column;
@@ -34,6 +48,10 @@ body {
 .product_price {
     color: #782270;
     font-size: 32px;
+}
+
+.product_quantity {
+
 }
 
 .submit-wrapper {

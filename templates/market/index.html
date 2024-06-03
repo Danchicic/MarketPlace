@@ -43,16 +43,17 @@
                 </div>
             </div>
 
-            {#            {% if user.is_authenticated %}#}
-            <div class="user-profile-logo">
-                <img src="{{ static('img/catalog/user-profile-photo.jpeg') }}" alt="" class="user-profile-img">
-
-            </div>
-            {#            {% else %}#}
-            {#                <div class="login">#}
-            {#                    login#}
-            {#                </div>#}
-            {#            {% endif %}#}
+            {% if user.is_authenticated %}
+                <div class="user-profile-logo">
+                    <a href="{{ url("users:profile") }}">
+                        <img src="{{ static('img/catalog/user-profile-photo.jpeg') }}" alt="" class="user-profile-img">
+                    </a>
+                </div>
+            {% else %}
+                <a class="login" href="{{ url('users:register') }}">
+                    Login/Registration
+                </a>
+            {% endif %}
 
         </div>
     </nav>

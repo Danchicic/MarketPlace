@@ -6,11 +6,20 @@
     }
 }
 
+/*@media (min-height: 1200px) {*/
+/*    body {*/
+/*        overflow: hidden;*/
+
+/*    }*/
+/*}*/
+
 body {
     background-repeat: no-repeat;
     font-family: "Reem Kufi Ink", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-size: cover;
+    overflow: hidden;
 
 }
 
@@ -113,6 +122,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 100px;
+    align-items: center;
 
 }
 
@@ -122,8 +132,6 @@ body {
 
 .alternative-button > button {
     border-radius: 40px;
-
-
 }
 
 .alternative-button > button > img {
@@ -136,4 +144,8 @@ body {
     align-items: center;
     margin: 10px 30px;
 
+}
+
+.login-button {
+    font-size: 30px;
 }
