@@ -15,8 +15,7 @@ cart.forEach(function (cartProduct) {
         }
         return false;
     });
-    console.log("shop product", shopProduct);
-    console.log(cart);
+
 
     if (shopProduct) {
         const buttonDelete = shopProduct.querySelector(".remove-product");
@@ -27,8 +26,6 @@ cart.forEach(function (cartProduct) {
         buttonAdd.textContent = "+";
 
     } else {
-        console.log("update cart counter");
-        console.log(cartProduct.product_quantity);
         counterSpan.textContent = parseInt(counterSpan.textContent) + cartProduct.product_quantity;
         counterSpan.style.display = 'inline-block';
     }
