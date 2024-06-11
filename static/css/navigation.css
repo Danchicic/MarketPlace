@@ -1,0 +1,19 @@
+nav {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.back-button {
+    background-color: #f1adb7;
+    text-decoration: none;
+    align-content: flex-start;
+
+}
+
+
+.button-text {
+    text-decoration-line: none;
+    color: white;
+    text-transform: uppercase;
+}

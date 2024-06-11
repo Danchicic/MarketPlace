@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/orders.css">
+    <link rel="stylesheet" href="../../static/css/navigation.css">
+</head>
+<body>
+<nav>
+    <!-- {% include("includes/back_button.html") %} -->
+
+    <a href="#">
+        <button class="back-button">
+            <span class="button-text">
+                back
+            </span>
+        </button>
+    </a>
+
+
+</nav>
+<p>Danya Gusevskiy</p>
+<form method="post" action="{% url 'users:signup' %}">
+    {% csrf_token %}
+
+    {# Выводим поля в цикле, по отдельности #}
+    {% for field in form %}
+        <div class="form-group row my-3">
+            <label for="{{ field.id_for_label }}">
+                {{ field.label }}
+                {% if field.field.required %}
+                    <span class="required text-danger">*</span>
+                {% endif %}
+            </label>
+            {# К полю ввода добавляем атрибут class #}
+            {{ field|add_class:"form-control" }}
+            {% if field.help_text %}
+                <small
+                        id="{{ field.id_for_label }}-help"
+                        class="form-text text-muted"
+                >
+                    {{ field.help_text|safe }}
+                </small>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <div class="col-md-6 offset-md-4">
+        <button type="submit" class="btn btn-primary">
+            Зарегистрироваться
+        </button>
+    </div>
+</form>
+
+</body>
+</html>

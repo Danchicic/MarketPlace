@@ -10,6 +10,8 @@ user = get_user_model()
 class Cart(models.Model):
     user = models.ForeignKey(user, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    cart_id = models.CharField(max_length=50)
+    date_create = models.DateTimeField()
 
 
 class Order(models.Model):

@@ -11,17 +11,17 @@ openCartBtn.addEventListener('click', function () {
     document.querySelector('body').style.overflow = 'hidden';
 
 
-    const cart_preview = document.createElement('form');
+    const cart_preview = document.createElement('div');
     //cart-preview;
     cart_preview.classList.add("cart_preview");
     cart_preview.setAttribute('id', 'cart-wrapper');
     cart_preview.style.display = 'flex';
-    //csrf protect
-    const csrfTokenHtml = document.createElement("input");
-    csrfTokenHtml.type = 'hidden';
-    csrfTokenHtml.name = 'csrfmiddlewaretoken';
-    csrfTokenHtml.value = CSRF_TOKEN;
-    cart_preview.appendChild(csrfTokenHtml);
+    // //csrf protect
+    // const csrfTokenHtml = document.createElement("input");
+    // csrfTokenHtml.type = 'hidden';
+    // csrfTokenHtml.name = 'csrfmiddlewaretoken';
+    // csrfTokenHtml.value = CSRF_TOKEN;
+    // // cart_preview.appendChild(csrfTokenHtml);
 
     //creating cart products
     const cart_items = document.createElement('ul');
@@ -53,7 +53,7 @@ openCartBtn.addEventListener('click', function () {
     } else {
         cart.forEach(function (product) {
             //create product html block
-            let htmlProduct = document.createElement('label');
+            let htmlProduct = document.createElement('li');
 
             let htmlProductImg = document.createElement("img");
             let htmlProductName = document.createElement('div');
@@ -91,6 +91,7 @@ openCartBtn.addEventListener('click', function () {
         const urlWrapper = document.createElement('a');
 
         const inputButton = document.createElement("input");
+        inputButton.id = "createUserCart";
         //get user.is_authorized from django template
         const isUserAuthenticated = document.body.getAttribute('data-user-authenticated') === 'True';
 
@@ -102,9 +103,8 @@ openCartBtn.addEventListener('click', function () {
             //get url from django
             const createOrderSrc = document.body.getAttribute('data-create-order-src');
             urlWrapper.href = createOrderSrc;
+            /////////////
             cart_preview.setAttribute('action', createOrderSrc);
-            cart_preview.setAttribute('method', 'post');
-
 
         } else {
             inputButton.classList.add("create_profile");
@@ -113,12 +113,14 @@ openCartBtn.addEventListener('click', function () {
             //get url from django
             const loginSrc = document.body.getAttribute('data-login-url');
             urlWrapper.href = loginSrc;
+            /////////////////
+            cart_preview.setAttribute('action', loginSrc);
 
         }
         //appending button to link tag
-        urlWrapper.appendChild(inputButton);
+        // urlWrapper.appendChild(inputButton);
         //appending button block
-        submitButtonWrapper.appendChild(urlWrapper);
+        submitButtonWrapper.appendChild(inputButton);
         //appending products from localStorage
         cart_preview.appendChild(closingSpan);
 
@@ -132,6 +134,7 @@ openCartBtn.addEventListener('click', function () {
     //appending black-overlay and cart to body
     document.querySelector("body").appendChild(cart_preview);
     document.querySelector("body").appendChild(bodyOverlay);
+    addListenerToCreateOrderButton();
 
 
 });

@@ -8,14 +8,7 @@
 <body>
 {% block main %}
     <nav>
-        <a href="/">
-            <button class="back-button">
-            <span class="button-text">
-                back
-            </span>
-            </button>
-        </a>
-
+        {% include("includes/back_button.html") %}
         {% include('includes/mini_cart.html') %}
 
 
