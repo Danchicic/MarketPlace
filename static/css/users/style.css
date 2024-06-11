@@ -49,8 +49,6 @@ body {
     border: 1px solid rgb(0, 0, 0);
     margin-bottom: 25px;
     font-size: 32px;
-
-
 }
 
 .form-field > label {
@@ -71,8 +69,6 @@ body {
     border: 0;
     width: 50%;
     border-radius: 50px;
-
-
 }
 
 .form-input:focus {

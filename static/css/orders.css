@@ -1,0 +1,112 @@
+body {
+    font-family: "Reem Kufi Ink", sans-serif;
+    font-size: 32px;
+
+}
+
+nav {
+    margin-left: 20px;
+    justify-content: flex-start;
+}
+
+form {
+    border-radius: 50px;
+    background: rgba(217, 217, 217, 0.62);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-group {
+    display: block;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    background: transparent;
+    border: none;
+}
+
+.form-label {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.label-text {
+    margin-top: 7px;
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+
+.form-input {
+    border: 0;
+    width: 90%;
+    height: 48px;
+    border-radius: 50px;
+    font-size: 32px;
+    padding-left: 15px;
+    background: rgba(217, 217, 217, 0.62);
+}
+
+.user-cart {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.product-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.left-column {
+    align-items: flex-start;
+}
+
+.product-cost {
+    color: rgb(120, 34, 112);
+
+
+}
+
+.total-cost {
+    border-top: 1px grey;
+    border-style: solid none none none;
+    color: rgb(27, 86, 237);
+
+
+}
+
+.cost {
+    margin-left: 20px;
+}
+
+.flex-button-wrapper {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.pay-button {
+    border-radius: 50px;
+    background: rgb(27, 86, 237);
+    color: white;
+    width: 298px;
+    height: 105px;
+    font-size: 32px;
+    cursor: pointer;
+
+}
+
+.pay-button:hover {
+    background: rgb(18, 60, 171);
+
+
+}
+
