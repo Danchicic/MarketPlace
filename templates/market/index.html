@@ -91,7 +91,19 @@
 
         </div>
     </footer>
+    <script>
+        const searchInput = document.getElementById('search');
+        const searchLogo = document.getElementsByClassName('search-logo')[0];
+        searchInput.addEventListener('focus', () => {
+            searchLogo.style.display = 'none';
 
+        });
+        searchInput.addEventListener('blur', () => {
+            if (searchInput.value.trim() === '') {
+                searchLogo.style.display = 'initial';
+            }
+        });
 
+    </script>
 
 {% endblock %}

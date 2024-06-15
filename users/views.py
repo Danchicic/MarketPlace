@@ -23,7 +23,7 @@ class Login(LoginView):
 
 
 class Profile(View):
-    template_name = 'users/profile.html'
+    template_name = 'users/_profile.html'
 
     def get(self, request):
         return render(request, self.template_name)

@@ -1,16 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="{{ static('img/logo.png') }}" type="image/x-icon">
-    <title>Document</title>
+    <title>Order</title>
+    <link rel="stylesheet" href="{{ static("css/orders.css") }}">
+    <link rel="stylesheet" href="{{ static("css/navigation.css") }}">
+    <link rel="stylesheet" href="{{ static("css/orders.css") }}">
+    <link rel="stylesheet" href="{{ static("css/successful.css") }}">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ static("img/logo.png") }}" type="image/x-icon">
 </head>
 <body>
+<nav>
+    {% include("includes/back_button.html") %}
+</nav>
 
-<p>{{ mew }}</p>
-<p>mew mew</p>
+
+<form method="post" action="{{ url("orders:send_order") }}" id="createOrderForm">
+    <input type="hidden" name="cart_id" value="{{ products[0].cart_id }}">
+    {% for field in form %}
+        {% if  loop.last %}
+
+
+        {% else %}
+            <div class="form-group row my-3">
+                <label for="{{ field.id_for_label }}" class="form-label">
+            <span class="label-text">
+                {{ field.label }}
+            </span>
+                    {{ field|addclass("form-input") }}
+                </label>
+            </div>
+        {% endif %}
+    {% endfor %}
+</form>
+
+<div class="user-cart">
+    <div class="product-column left-column">
+        {% for item in products %}
+            <div class="product-name">{{ item.product.name }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="product-column">
+        {% for item in products %}
+            <div class="product-cost">
+                {{ item.product.price|intcomma }}
+            </div>
+        {% endfor %}
+
+
+        <div class="total-cost">
+            Total <span class="cost">{{ total_cost|intcomma }}</span>
+        </div>
+    </div>
+
+</div>
+<div class="flex-button-wrapper">
+    <button id="submitButton" type="submit" class="pay-button" value="Pay">
+        Pay
+    </button>
+</div>
+
+<div id="success-popup" class="success-popup hidden">
+    <div class="success-popup-content">
+        <h2>Successful!</h2>
+    </div>
+</div>
+
+
+<script>const CSRF_token = "{{ csrf_token }}"</script>
+<script src="{{ static('js/sendOrder.js') }}"></script>
+
 </body>
 </html>
