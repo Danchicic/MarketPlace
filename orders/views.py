@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, View
 from django.utils.timezone import now
 
-from .models import Order, Cart
+from .models import Order, Cart, CartProduct
 from market.models import Product
 from .forms import CreateOrderForm
 
@@ -30,9 +30,10 @@ class CreateOrder(CreateView):
         if form.is_valid():
             new_order = Order(
                 name=form.cleaned_data['name'],
-                cart_id=form.cleaned_data['cart_id'],
+                cart=Cart.objects.get(id=form.cleaned_data['cart_id']),
                 address=form.cleaned_data['address'],
-                country=form.cleaned_data['country']
+                country=form.cleaned_data['country'],
+                user=User.objects.get(id=request.user.id)
             )
 
             new_order.save()
@@ -52,35 +53,55 @@ class CreateCart(View):
     template_name = "orders/index.html"
     form_class = CreateOrderForm()
 
-    def get(self, request):
-        params = request.GET
-        cart_id = params['cart_id']
-        products = Cart.objects.select_related("product").filter(cart_id=cart_id)
-        total = products.aggregate(Sum('product__price'))['product__price__sum']
-        return render(request, template_name=self.template_name,
-                      context={"form": self.form_class, "products": products, 'total_cost': total})
-
     @staticmethod
     def post(request):
+        # get user cart data from form
         user_cart = json.loads(request.body.decode())
-        random_id = uuid.uuid4()
-        date_create = now()
-        cart_objects_to_create = [
-            Cart(
-                user=User.objects.get(id=request.user.id),
+        new_user_cart_object = Cart(
+            user=User.objects.get(id=request.user.id)
+        )
+
+        cart_product_objects_to_create = [
+            CartProduct(
+                cart=new_user_cart_object,
                 product=Product.objects.get(
                     id=int(el['product_id'])
                 ),
-                cart_id=random_id,
-                date_create=date_create
             )
             for el in user_cart
         ]
-        Cart.objects.bulk_create(cart_objects_to_create)
-        return JsonResponse({"cart_id": random_id,
+        new_user_cart_object.save()
+        CartProduct.objects.bulk_create(cart_product_objects_to_create)
+        return JsonResponse({"cart_id": new_user_cart_object.id,
                              "redirect_url": reverse_lazy("orders:create_order")[:-1]
                              })
 
+    def get(self, request):
+        params = request.GET
+        cart_id = params['cart_id']
+        products = CartProduct.objects.filter(cart_id=cart_id)
+        total = products.aggregate(Sum('product__price'))['product__price__sum']
+
+        return render(request, template_name=self.template_name,
+                      context={"form": self.form_class, "products": products, 'total_cost': total})
+
 
 class UserOrders(View):
-    pass
+    template_name = 'orders/user_orders.html'
+
+    def get(self, request):
+        user_orders = Order.objects.prefetch_related(
+            'cart',
+            'cart__cartproduct_set',
+            'cart__cartproduct_set__product'
+        ).filter(
+            user_id=request.user.id
+        ).annotate(
+            total_price=Sum('cart__cartproduct__product__price')
+        )
+
+        context = {
+            "user_orders": user_orders
+        }
+
+        return render(request, self.template_name, context=context)

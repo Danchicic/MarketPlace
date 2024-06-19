@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{{ static("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ static("css/orders/orders.css") }}">
+</head>
+<body>
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1">
+                <div class="table100-firstcol">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Order ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order in user_orders %}
+                            <tr class="row100 body">
+                                <td class="cell100 column1">{{ order.id }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wrap-table100-nextcols js-pscroll ps ps--active-x">
+                    <div class="table100-nextcols">
+                        <table>
+                            <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column2">Date</th>
+                                <th class="cell100 column3">Sum</th>
+                                <th class="cell100 column4">Address</th>
+                                <th class="cell100 column5">Receiver Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order_info in user_orders %}
+                                <tr class="row100 body">
+                                    <td class="cell100 column2">{{ order_info.date_create.strftime("%Y-%m-%d %H-%M") }}</td>
+                                    <td class="cell100 column3">{{ order_info.total_price }}</td>
+                                    <td class="cell100 column4">{{ order_info.address }}</td>
+                                    <td class="cell100 column5">{{ order_info.name }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

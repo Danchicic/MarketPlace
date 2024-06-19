@@ -24,7 +24,7 @@
             <div class="nav-links">
                 <a href="#" class="nav-item">Dashboard</a>
                 <a href="#" class="nav-item">Purchases</a>
-                <a href="#" class="nav-item">Orders</a>
+                <a href="{{ url("orders:view_orders") }}" class="nav-item">Orders</a>
                 {% include("includes/mini_cart.html") %}
                 {#                <a href="{{ url('catalog:dashboard') }}" class="nav-item">Dashboard</a>#}
                 {#                <a href="{{ url('users:purchases') }}" class="nav-item">Purchases</a>#}
